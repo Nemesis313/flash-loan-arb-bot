@@ -1,0 +1,5 @@
+// Cargo.make.toml
+
+[tasks.lint]
+command = "cargo" 
+args = ["clippy", "--all-targets", "--", "-D", "warnings"]
