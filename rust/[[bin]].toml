@@ -1,7 +1,0 @@
-# Cargo.toml
-
-# ... other config ...
-
-[[bin]]
-name = "arb-bot"
-path = "src/main.rs"
