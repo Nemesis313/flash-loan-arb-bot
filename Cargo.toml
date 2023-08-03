@@ -1,4 +1,4 @@
-// Cargo.make.toml
+Cargo.make.toml
 
 [tasks.lint]
 command = "cargo" 
