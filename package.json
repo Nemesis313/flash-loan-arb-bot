@@ -1,0 +1,13 @@
+{
+  "name": "flash-loan-arb-bot",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "node scripts/deploy.js",
+    "test": "mocha test"
+  },
+  "dependencies": {
+    "chai": "^4.3.4",
+    "ethers": "^5.5.2",
+    "mocha": "^9.2.2"
+  }
+}
