@@ -1,5 +1,30 @@
-Cargo.make.toml
+[package]
+name = "flash-loan-arbitrage-bot"
+version = "0.1.0"
+edition = "2018"
 
-[tasks.lint]
-command = "cargo" 
-args = ["clippy", "--all-targets", "--", "-D", "warnings"]
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+ethers = "0.14.0"
+web3 = "0.14.0"
+bigdecimal = "0.5.0"
+hex = "0.4.3"
+log = "0.4.17"
+tracing = "0.1.35"
+tracing-futures = "0.2.5"
+async-trait = "0.1.52"
+anyhow = "1.0.43"
+
+[lib]
+name = "flash_loan_arbitrage_bot"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[features]
+default = ["ethers", "web3"]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
