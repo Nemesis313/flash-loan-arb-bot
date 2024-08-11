@@ -1,0 +1,10 @@
+# Node.js dependencies
+node_modules/
+
+# Coverage reports
+coverage/
+
+# Log files
+*.log
+
+# Other files or folders to ignore (add as needed)
