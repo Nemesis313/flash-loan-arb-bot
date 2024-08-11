@@ -1,59 +1,51 @@
-# flash-loan-arb-bot
+Flash Loan Arbitrage Bot
+==========================
 
-This bot monitors decentralized exchanges and performs arbitrage using flash loans.
+A decentralized application for executing flash loan arbitrage opportunities on Uniswap v2.
 
-## Setup
+**Contract Directory**
+---------------------
 
-1. Install Rust
+The `contracts` directory contains the smart contracts for the flash loan arbitrage bot:
 
-```
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-```
+* `FlashLoanArbitrageBot.sol`: The main contract that executes flash loan arbitrage trades.
+* `FlashLoan.sol`: A utility contract for interacting with flash loan providers.
+* `interfaces/`:
+	+ `IUniswapV2Factory.sol`: Interface for the Uniswap v2 factory contract.
+	+ `IUniswapV2Pair.sol`: Interface for the Uniswap v2 pair contract.
+	+ `IUniswapV2Router02.sol`: Interface for the Uniswap v2 router contract.
 
-2. Clone repo
+**Scripts Directory**
+---------------------
 
-```
-git clone https://github.com/yourname/arb-bot
-cd arb-bot
-```
+The `scripts` directory contains scripts for deploying and configuring the flash loan arbitrage bot:
 
-3. Install dependencies
+* `deploy.js`: A script for deploying the contracts to the Ethereum blockchain.
+* `config.js`: A script for configuring the bot's settings and parameters.
 
-```
-cargo build
-```
+**Test Directory**
+-----------------
 
-4. Configure environment 
+The `test` directory contains test files for the flash loan arbitrage bot:
 
-Copy `.env.example` to `.env` and update values
+* `FlashLoanArbitrageBot.test.js`: Test file for the `FlashLoanArbitrageBot` contract.
 
-5. Run bot
+**Getting Started**
+---------------
 
-```
-cargo run --bin arb-bot
-```
+To get started with the flash loan arbitrage bot, follow these steps:
 
-## Operation
+1. Install the required dependencies by running `npm install` in the project root.
+2. Configure the bot's settings and parameters by modifying the `config.js` file.
+3. Deploy the contracts to the Ethereum blockchain by running `node scripts/deploy.js`.
+4. Run the tests by executing `node test/FlashLoanArbitrageBot.test.js`.
 
-- The bot will connect to an Ethereum node to monitor exchanges
-- It scans for price differences between DEX pools 
-- When an opportunity is found, it executes an atomic arbitrage trade using a flash loan
-- Profits are stored in the contract for later withdrawal
+**License**
+-------
 
-## Monitoring
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-Metrics are exported in Prometheus format at `/metrics` endpoint. Grafana dashboard included.
+**Contributing**
+------------
 
-## Deployment
-
-For production environments, check out the [deployment guide](docs/deploy.md).
-
-## Contributing
-
-Pull requests are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-This project is licensed under the MIT license. See [LICENSE](LICENSE) for more details.
-
-Let me know if you would like any sections expanded or have additional questions!
+Contributions to the flash loan arbitrage bot are welcome! Please open a pull request to submit your changes.
