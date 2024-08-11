@@ -1,32 +1,43 @@
-// src/lib.rs
+use crate::flash_loan::{FlashLoan, FlashLoanError};
 
-pub mod config;
-pub mod ethereum;
-pub mod arbitrage;
-pub mod monitoring;
-pub mod messaging;
-
-// Config module
-pub use config::{load_configuration, Settings}; 
-
-// Ethereum interaction 
-pub use ethereum::{get_provider, load_contract};
-
-// Arbitrage logic
-pub use arbitrage::{find_opportunities, execute_swap}
-
-// Monitoring service 
-pub use monitoring::start_monitoring;
-
-// Messaging
-pub use messaging::{send_telegram, send_email};
-
-// Shared utilities
-pub fn init_logger() {
-  // Initialize logger
+pub struct FlashLoanArbitrageBot {
+    uniswap_v2_factory_address: String,
+    uniswap_v2_router02_address: String,
 }
 
-#[cfg(test)]
-mod tests {
-  // Library unit tests 
+impl FlashLoanArbitrageBot {
+    pub fn new(uniswap_v2_factory_address: String, uniswap_v2_router02_address: String) -> Self {
+        FlashLoanArbitrageBot {
+            uniswap_v2_factory_address,
+            uniswap_v2_router02_address,
+        }
+    }
+
+    pub async fn initiate_flash_loan_arbitrage(
+        &self,
+        tokens: Vec<String>,
+        amounts: Vec<u64>,
+        deadline: u64,
+    ) -> Result<FlashLoan, FlashLoanError> {
+        // Implement the logic to initiate the flash loan arbitrage
+        // using the Uniswap V2 protocol
+        unimplemented!()
+    }
+}
+
+mod flash_loan {
+    use super::*;
+
+    pub struct FlashLoan {
+        tokens: Vec<String>,
+        amounts: Vec<u64>,
+        deadline: u64,
+    }
+
+    pub enum FlashLoanError {
+        // Define error variants for the flash loan process
+        InvalidToken,
+        InsufficientLiquidity,
+        DeadlineExceeded,
+    }
 }
